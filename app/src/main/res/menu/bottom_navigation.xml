@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Cats"
+        android:id="@+id/catsFragment"/>
+    <item android:title="Cinema"
+        android:id="@+id/cinemaFragment"/>
+    <item android:title="Language"
+        android:id="@+id/languageFragment"/>
+</menu>
