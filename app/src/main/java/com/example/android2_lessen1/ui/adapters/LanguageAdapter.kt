@@ -1,32 +1,25 @@
-package com.example.android2_lessen1.ui.adapter
+package com.example.android2_lessen1.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.android2_lessen1.data.models.CatsModels
+import com.example.android2_lessen1.data.model.CatsModel
 import com.example.android2_lessen1.databinding.ItemLenguageBinding
 
-class LanguageAdapter (
-    private val onItemClick: (catsModel: CatsModels) -> Unit
+class LanguageAdapter(
+    private val onItemClick: (catsModel: CatsModel) -> Unit
 ) : RecyclerView.Adapter<LanguageAdapter.LanguageViewHolder>() {
 
-    private var list: MutableList<CatsModels> = ArrayList()
+    private var list: MutableList<CatsModel> = ArrayList()
 
     inner class LanguageViewHolder(private val binding: ItemLenguageBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-
-        init {
-            itemView.setOnClickListener {
-                onItemClick(list[absoluteAdapterPosition])
-            }
-        }
-
-        fun onBind(model: CatsModels) {
-            binding.textView.text = model.name
+        fun onBind(model: CatsModel) {
+            binding.textViewLenguage.text = model.name
         }
     }
-    
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LanguageViewHolder {
         return LanguageViewHolder(
             ItemLenguageBinding.inflate(
@@ -45,4 +38,7 @@ class LanguageAdapter (
         return list.size
     }
 
+    fun setData(list: MutableList<CatsModel>) {
+        this.list = list
+    }
 }

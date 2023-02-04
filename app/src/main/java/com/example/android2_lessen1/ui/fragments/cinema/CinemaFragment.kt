@@ -1,4 +1,4 @@
-package com.example.android2_lessen1.ui.fragment.cats
+package com.example.android2_lessen1.ui.fragments.cinema
 
 import android.os.Bundle
 import android.util.Log
@@ -7,23 +7,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.example.android2_lessen1.data.models.CatsModels
+import com.example.android2_lessen1.data.model.CatsModel
 import com.example.android2_lessen1.data.repository.CatsRepository
-import com.example.android2_lessen1.databinding.FragmentCatsBinding
-import com.example.android2_lessen1.ui.adapter.CatsAdapter
+import com.example.android2_lessen1.databinding.FragmentCinemaBinding
+import com.example.android2_lessen1.ui.adapters.CinemaAdapter
 
+class CinemaFragment : Fragment() {
 
-class CatsFragment : Fragment() {
-
-    private lateinit var binding: FragmentCatsBinding
-    private val mAdapter = CatsAdapter(this::onItemClick)
+    private lateinit var binding: FragmentCinemaBinding
+    private val mAdapter = CinemaAdapter(this::onItemClick)
     private val repository = CatsRepository()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentCatsBinding.inflate(inflater, container, false)
+        binding = FragmentCinemaBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -34,15 +33,16 @@ class CatsFragment : Fragment() {
     }
 
     private fun setupSubscribes() {
-        mAdapter.setData(repository.getListOfText())
+            mAdapter.setData(repository.getListOfText())
     }
 
     private fun setupRequest() {
-        binding.recyclerViewCat.adapter = mAdapter
+        binding.recyclerViewCinema.adapter = mAdapter
     }
 
-    private fun onItemClick(catsModels: CatsModels) {
-        findNavController().navigate(CatsFragmentDirections.actionCatsFragmentToDetailFragment(catsModels.name, catsModels.image))
+    private fun onItemClick(catsModels: CatsModel) {
+        findNavController().navigate(catsModels.name)
         Log.d("anime", "onItemClick")
     }
 }
+

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/catsFragment"
-        android:name="com.example.android2_lessen1.ui.fragment.cats.CatsFragment"
+        android:name="com.example.android2_lessen1.ui.fragments.cats.CatsFragment"
         android:label="CatsFragment" >
         <action
             android:id="@+id/action_catsFragment_to_detailFragment"
@@ -15,14 +15,14 @@
     </fragment>
     <fragment
         android:id="@+id/cinemaFragment"
-        android:name="com.example.android2_lessen1.ui.fragment.cinema.CinemaFragment"
+        android:name="com.example.android2_lessen1.ui.fragments.cinema.CinemaFragment"
         android:label="fragment_cinema"
         tools:layout="@layout/fragment_cinema" />
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.example.android2_lessen1.ui.fragment.detail.DetailFragment"
+        android:name="com.example.android2_lessen1.ui.fragments.detail.DetailFragment"
         android:label="fragment_ditail"
-        tools:layout="@layout/fragment_ditail" >
+        tools:layout="@layout/fragment_cats_ditail" >
         <argument
             android:name="name"
             app:argType="string" />
@@ -32,7 +32,7 @@
     </fragment>
     <fragment
         android:id="@+id/languageFragment"
-        android:name="com.example.android2_lessen1.ui.fragment.language.LanguageFragment"
+        android:name="com.example.android2_lessen1.ui.fragments.language.LanguageFragment"
         android:label="fragment_lenguage"
         tools:layout="@layout/fragment_lenguage" />
 </navigation>

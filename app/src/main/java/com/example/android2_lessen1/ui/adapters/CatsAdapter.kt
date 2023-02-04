@@ -1,17 +1,17 @@
-package com.example.android2_lessen1.ui.adapter
+package com.example.android2_lessen1.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.android2_lessen1.data.models.CatsModels
+import com.example.android2_lessen1.data.model.CatsModel
 import com.example.android2_lessen1.databinding.ItemCatBinding
 
 class CatsAdapter(
-    private val onItemClick: (catsModel: CatsModels) -> Unit
+    private val onItemClick: (catsModel: CatsModel) -> Unit
 ) : RecyclerView.Adapter<CatsAdapter.CatsViewHolder>() {
 
-    private var list: MutableList<CatsModels> = ArrayList()
+    private var list: MutableList<CatsModel> = ArrayList()
 
     inner class CatsViewHolder(private val binding: ItemCatBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -23,7 +23,7 @@ class CatsAdapter(
             }
         }
 
-        fun onBind(catsModel: CatsModels) {
+        fun onBind(catsModel: CatsModel) {
             binding.textsView.text = catsModel.name
             Glide.with(binding.imagesView.context).load(catsModel.image).into(binding.imagesView)
         }
@@ -47,7 +47,7 @@ class CatsAdapter(
         return list.size
     }
 
-    fun setData(list: MutableList<CatsModels>) {
+    fun setData(list: MutableList<CatsModel>) {
         this.list = list
     }
 }
